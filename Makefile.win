@@ -1,0 +1,31 @@
+# Project: CROWLER
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o Downurl_def.o
+LINKOBJ  = main.o Downurl_def.o
+LIBS     = -L"C:/cygwin64/lib" -static-libgcc   -lcurl -pthread -pedantic  -lm  -w -pg
+INCS     = -I"C:/cygwin64/usr/include"
+CXXINCS  = -I"C:/cygwin64/usr/include"
+BIN      = CROWLER.exe
+CXXFLAGS = $(CXXINCS) -pg -std=c++11
+CFLAGS   = $(INCS) -pg -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Downurl_def.o: Downurl_def.cpp
+	$(CPP) -c Downurl_def.cpp -o Downurl_def.o $(CXXFLAGS)

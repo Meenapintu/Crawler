@@ -3,4 +3,9 @@ This is a crowler to download page and to do search on page .
 
 run the source code using makefile .
 
+for linux command to build is
+		"make -f UNI_makefile"
+
+or use  Makefile.win with some modification.
+
 source code has necessary commenting and meaningfull naming 
