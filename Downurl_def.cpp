@@ -36,6 +36,7 @@ void HTML_DOWN::save_down(string url,string file)
 	if (!fp)
 	{
 	    printf("!!! Failed to create file \n");
+		exit(-1);
 	}
 	cout<<"WRITING DATA TO FILE\n";
 	curl = curl_easy_init();
@@ -59,12 +60,22 @@ hp HTML_DOWN::path_to_save(string url)
 {
 	hp temp;
 	size_t found = url.find("//");
-	size_t found2 = url.find_last_of("/");
+	size_t found2 = url.find_last_of("/");	
+	if(found2!=std::string::npos){
 	if(found!=std::string::npos) temp.host =  url.substr(found+2,found2);
 	temp.host =  url.substr(0,found2);
-	if(found2!=std::string::npos)
-		temp.path =  url.substr(found2+1);
+	temp.path =  url.substr(found2+1);
 	//else temp.path = "NOT_FOUND_PATH_NOFILE";
+	found = temp.path.find_last_of(".");
+	if(found ==std::string::npos){
+		temp.host.append("/").append(temp.path);
+		 temp.path = ("/_index.html");
+	}
+	}
+	else{
+		temp.host =  url;
+		temp.path = "NO_PATH.html";
+	} 
 	return temp;
 }
 

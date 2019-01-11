@@ -1,5 +1,5 @@
 all:	run
 
 run:
-	g++-5 -std=c++11  main.cpp  Downurl_def.cpp -o Crawler -lcurl -pthread -pedantic  -lm  -w
+	g++ -std=c++11  main.cpp  Downurl_def.cpp -o Crawler -lcurl -pthread -pedantic  -lm  -w
 
