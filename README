@@ -6,6 +6,18 @@ run the source code using makefile .
 for linux command to build is
 		"make -f UNI_makefile"
 
+# Use
+./Crawler
+
+then input url  ( like http://me.yehigo.com/)
+
+then input 1  
+
+then input 4 to save all links of url
+
+for more follow cout output guide
+
+
 or use  Makefile.win with some modification.
 
 source code has necessary commenting and meaningfull naming 
